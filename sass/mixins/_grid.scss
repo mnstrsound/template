@@ -1,0 +1,37 @@
+@import "../settings";
+
+@mixin make-paddings() {
+  padding-left: $gutter-width / 2;
+  padding-right: $gutter-width / 2;
+}
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin row() {
+  font-size: 0;
+  margin-left: -$gutter-width / 2;
+  margin-right: -$gutter-width / 2;
+}
+
+@mixin column() {
+  font-size: $font-size;
+  min-height: 1px;
+  display: inline-block;
+  vertical-align: top;
+  @include make-paddings();
+}
+
+@mixin column-width($col-size, $grid-sys) {
+  width: 100% / $grid-sys * $col-size;
+}
+
+@mixin offset-width($col-size, $grid-sys) {
+  margin-left: calc(100% / #{$grid-sys} * #{$col-size});
+}
