@@ -18,7 +18,7 @@ gulp.task('sass', function () {
     gulp.src('sass/**/*.scss')
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(concat('build.css'))
-        .pipe(gulp.dest('css'));
+        .pipe(gulp.dest('build/css'));
 });
 
 gulp.task('moveJSLibs', function () {
