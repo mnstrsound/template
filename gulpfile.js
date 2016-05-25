@@ -17,12 +17,13 @@ gulp.task('browser-sync', function() {
 gulp.task('sass', function () {
     gulp.src('sass/**/*.scss')
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(concat('build.css'))
         .pipe(gulp.dest('css'));
 });
 
 gulp.task('moveJSLibs', function () {
     gulp.src([
-        'bower_components/jquery/dist/jquery.min.js'
+            'bower_components/jquery/dist/jquery.min.js'
         ])
         .pipe(concat('libs.js'))
         .pipe(gulp.dest('build/js'));
@@ -47,12 +48,6 @@ gulp.task('moveImg', function () {
         .pipe(gulp.dest('build/img'));
 });
 
-gulp.task('concatCSS', function () {
-    gulp.src('css/**/*.css')
-        .pipe(concat('build.css'))
-        .pipe(gulp.dest('build/css'));
-});
-
 gulp.task('jade', function() {
     gulp.src('jade/**/*.jade')
         .pipe(jade({
@@ -61,11 +56,10 @@ gulp.task('jade', function() {
         .pipe(gulp.dest('build'));
 });
 
-gulp.task('build', ['moveJSLibs', 'moveCSSLibs', 'moveJS', 'moveImg','sass', 'concatCSS', 'jade']);
+gulp.task('build', ['moveJSLibs', 'moveCSSLibs', 'moveJS', 'moveImg','sass', 'jade']);
 
 gulp.task('watch', function () {
     gulp.watch('sass/**/*.scss', ['sass']);
-    gulp.watch('css/**/*.css', ['concatCSS']);
     gulp.watch('js/**/*.js', ['moveJS']);
     gulp.watch('img/**/*', ['moveImg']);
     gulp.watch('jade/**/*.jade', ['jade']);
