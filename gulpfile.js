@@ -39,6 +39,7 @@ gulp.task('moveCSSLibs', function () {
 
 gulp.task('moveJS', function () {
     gulp.src('js/**/*.js')
+        .pipe(concat('build.js'))
         .pipe(gulp.dest('build/js'));
 });
 
