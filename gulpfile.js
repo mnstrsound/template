@@ -5,7 +5,6 @@ var sass = require('gulp-sass');
 var jade = require('gulp-jade');
 var concat = require('gulp-concat');
 var browserSync = require('browser-sync').create();
-var data = require('./data.json');
 
 gulp.task('browser-sync', function() {
     browserSync.init({
