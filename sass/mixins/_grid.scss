@@ -1,6 +1,6 @@
 @import "../settings";
 
-@mixin make-paddings() {
+@mixin paddings() {
   padding-left: $gutter-width / 2;
   padding-right: $gutter-width / 2;
 }
@@ -25,7 +25,7 @@
   min-height: 1px;
   display: inline-block;
   vertical-align: top;
-  @include make-paddings();
+  @include paddings();
 }
 
 @mixin column-width($col-size, $grid-sys) {
