@@ -20,12 +20,22 @@
   margin-right: -$gutter-width / 2;
 }
 
+@mixin row-floated() {
+  @include row();
+  @include clearfix();
+}
+
 @mixin column() {
   font-size: $font-size;
   min-height: 1px;
   display: inline-block;
   vertical-align: top;
   @include paddings();
+}
+
+@mixin column-floated() {
+  @include column();
+  float: left;
 }
 
 @mixin column-width($col-size, $grid-sys) {
