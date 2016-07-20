@@ -21,22 +21,6 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('build/css'));
 });
 
-gulp.task('moveJSLibs', function () {
-    gulp.src([
-            'bower_components/jquery/dist/jquery.min.js'
-        ])
-        .pipe(concat('libs.js'))
-        .pipe(gulp.dest('build/js'));
-});
-
-gulp.task('moveCSSLibs', function () {
-    gulp.src([
-
-        ])
-        .pipe(concat('libs.css'))
-        .pipe(gulp.dest('build/css'));
-});
-
 gulp.task('moveJS', function () {
     gulp.src('js/**/*.js')
         .pipe(concat('build.js'))
@@ -56,7 +40,7 @@ gulp.task('jade', function() {
         .pipe(gulp.dest('build'));
 });
 
-gulp.task('build', ['moveJSLibs', 'moveCSSLibs', 'moveJS', 'moveImg','sass', 'jade']);
+gulp.task('build', ['moveJS', 'moveImg','sass', 'jade']);
 
 gulp.task('watch', function () {
     gulp.watch('sass/**/*.scss', ['sass']);
