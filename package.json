@@ -4,15 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "watch": "gulp watch",
+    "build": "gulp build",
+    "start": "gulp browser-sync",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "browser-sync": "^2.18.13",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-jade": "^1.1.0",
-    "gulp-sass": "^2.2.0",
-    "browser-sync": "^2.12.8"
+    "gulp-sass": "^2.2.0"
   }
 }
